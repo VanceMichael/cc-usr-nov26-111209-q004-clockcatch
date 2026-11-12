@@ -1,0 +1,8 @@
+{
+  "/sample": {
+    "file": "samples.json"
+  },
+  "/boots": {
+    "file": "boots.json"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "revision": "clock2",
+  "anchors": [
+    {
+      "bootId": "A",
+      "tick": 0,
+      "utc_us": 0
+    },
+    {
+      "bootId": "A",
+      "tick": 100,
+      "utc_us": 200000000
+    },
+    {
+      "bootId": "B",
+      "tick": 0,
+      "utc_us": 120000000
+    },
+    {
+      "bootId": "B",
+      "tick": 80,
+      "utc_us": 280000000
+    }
+  ]
+}
