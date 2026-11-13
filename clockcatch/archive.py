@@ -53,6 +53,25 @@ class Archive:
             raise ValueError('原文摘要不匹配')
         return body
 
+    def get_capture(self, capture_id):
+        """返回一次原始请求的元数据与正文（采集反查用）。"""
+        row = self.connection.execute(
+            'select url,status,content_type,digest,size from captures where id=?',
+            (capture_id,),
+        ).fetchone()
+        if row is None:
+            raise KeyError(capture_id)
+        body = self.read(capture_id)
+        return {
+            'capture_id': capture_id,
+            'url': row[0],
+            'status': row[1],
+            'content_type': row[2],
+            'digest': row[3],
+            'size': row[4],
+            'body': body,
+        }
+
     def rows(self):
         self.connection.row_factory = sqlite3.Row
         return [dict(row) for row in self.connection.execute('select * from captures order by id')]
